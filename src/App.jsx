@@ -3,8 +3,8 @@ import ExpenseForm from './components/ExpenseForm';
 import Filter from './components/Filter';
 import ExpenseList from './components/ExpesnseList';
 import Summary from './components/Summary';
-import useLocalStorage from './hooks/useLocalStorage';
-import SpendingDistribution from './components/SpendingDistribution';
+import useLocalStorage from './hooks/useLocalstorage';
+
 
 const App = () => {
   // Default expenses data
