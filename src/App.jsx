@@ -5,7 +5,7 @@ import ExpenseList from './components/ExpenseList';
 import Summary from './components/Summary';
 import ThemeToggle from './components/ThemeToggle';
 import useDarkMode from "./hooks/useDarkMode"
-import useLocalStorage from './hooks/useLocalstorage';
+import useLocalStorage from './hooks/useLocalStorage';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
