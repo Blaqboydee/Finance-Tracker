@@ -5,31 +5,63 @@ import ExpenseList from './components/ExpenseList';
 import Summary from './components/Summary';
 import ThemeToggle from './components/ThemeToggle';
 import useDarkMode from "./hooks/useDarkMode"
-import useLocalStorage from './hooks/useLocalStorage';
+import useLocalStorage from './hooks/useLocalstorage';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const App = () => {
 
   const [isDarkMode, setIsDarkMode] = useDarkMode();
- const [newCategory, setNewCategory] = useState("");
    const [isModalOpen, setIsModalOpen] = useState(false);
 const [categories, setCategories] = useLocalStorage("categories", [
-  { name: "Food", icon: "🍔" },
-  { name: "Transport", icon: "🚌" },
-  { name: "Rent", icon: "🏠" },
-  { name: "Entertainment", icon: "🎬" },
-  { name: "Shopping", icon: "🛍️" },
-  { name: "Healthcare", icon: "🏥" },
+  { name: "Food", icon: "🍔", type:"default" },
+  { name: "Transport", icon: "🚌", type:"default"  },
+  { name: "Rent", icon: "🏠", type:"default"  },
+  { name: "Entertainment", icon: "🎬", type:"default"  },
+  { name: "Shopping", icon: "🛍️", type:"default"  },
+  { name: "Healthcare", icon: "🏥", type:"default"  },
 ]);
+ const [newName, setnewName] = useState("")
+
+// console.log(newName);
+
+const editCategory = (oldName, updatedName) => {
+  if (!updatedName.trim()) return; // prevent empty name
+  
+  setCategories((prev) =>
+    prev.map((cat) =>
+      cat.name === oldName ? { ...cat, name: updatedName } : cat
+    )
+  );
+  toast.success("Category edited successfully")
+  setnewName(""); // reset input
+};
+
+
+
+const deleteCategory = (name) => {
+  const updatedCategories = categories.filter(
+    (category) => category.name !== name
+  );
+  setCategories(updatedCategories);
+  toast.error("A category deleted")
+
+};
 
 
 
 
-const handleAddCategory = () => {
+
+
+ const [newCategory, setNewCategory] = useState("");
+  
+  const handleAddCategory = () => {
   if (!newCategory.trim()) return;
 
   const updatedCategories = [
     ...categories,
-    { name: newCategory, icon: "🔖" } 
+    { name: newCategory, icon: "🔖", type:"custom"  } 
   ];
 
   setCategories(updatedCategories); 
@@ -37,11 +69,9 @@ const handleAddCategory = () => {
 
   setNewCategory("");
   setIsModalOpen(false);
+  toast.success("New category added!")
 };
 
-
-  
- 
 
   // Default expenses data
   const defaultExpenses = [
@@ -118,6 +148,7 @@ const handleAddCategory = () => {
 
   const handleDeleteExpense = (id) => {
     setExpenses(prevExpenses => prevExpenses.filter(expense => expense.id !== id));
+    toast.success("Expense deleted!")
   };
 
 
@@ -129,16 +160,16 @@ const handleAddCategory = () => {
 
 
   const filterByDescription = (expenses, desc) => {
-    console.log(desc);
+    // console.log(desc);
     
     let filtered = expenses.filter(expense => expense.description.toLowerCase().includes(desc.toLowerCase()))
-    console.log(filtered);
+    // console.log(filtered);g
     return filtered
   }
 
   // Apply both category and date filters
   let filteredExpenses = expenses;
-  console.log(expenses);
+  // console.log(expenses);
   
   // Filter by category
   if (filterCategory !== 'All Categories') {
@@ -170,6 +201,13 @@ const handleAddCategory = () => {
             categories={categories}
             isDarkMode={isDarkMode}
             setIsModalOpen={setIsModalOpen}
+            newCategory={newCategory}
+            setNewCategory={setNewCategory}
+            handleAddCategory={handleAddCategory}
+            deleteCategory={deleteCategory}
+            editCategory={editCategory}
+            setnewName={setnewName}
+            newName={newName}
           />
           
           <Filter 
@@ -193,49 +231,8 @@ const handleAddCategory = () => {
             categories={categories}
             isDarkMode={isDarkMode}
           />
-
-
-
-              {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div
-            className={`p-6 rounded-xl shadow-lg w-96
-              ${isDarkMode ? "bg-slate-800 text-slate-100" : "bg-white text-slate-900"}`}
-          >
-            <h2 className="text-lg font-semibold mb-4">Add New Category</h2>
-
-            <input
-              type="text"
-              value={newCategory}
-              onChange={(e) => setNewCategory(e.target.value)}
-              placeholder="Enter category name"
-              className={`w-full px-4 py-2 rounded-lg border mb-4 outline-none
-                ${
-                  isDarkMode
-                    ? "bg-slate-700 border-slate-600 text-slate-100"
-                    : "bg-slate-50 border-slate-300 text-slate-900"
-                }`}
-            />
-
-            <div className="flex justify-end gap-2">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 rounded-lg bg-gray-400 text-white hover:bg-gray-500"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleAddCategory}
-                className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
-              >
-                Add
-              </button>
-            </div>
-          </div>
         </div>
-      )}
-        </div>
+        <ToastContainer/>
       </div>
     </div>
   );

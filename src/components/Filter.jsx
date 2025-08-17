@@ -19,7 +19,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
       : "bg-white border-slate-200"
   }`}
 >
-  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+  <div className="flex md:flex-row flex-wrap sm:flex-col items-start sm:items-center gap-4">
     {/* Filter */}
     <div className="flex items-center gap-3">
       <span
@@ -101,7 +101,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
      onChange={(e)=>setDescription(e)}
   type="text"
   placeholder="Search by description"
-  className={`px-4 py-2  outline-none rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10
+  className={`px-4 py-2 w-[80%]  outline-none rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10
     ${
       isDarkMode
         ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600 placeholder-slate-300"
