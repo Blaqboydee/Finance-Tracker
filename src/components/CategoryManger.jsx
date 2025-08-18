@@ -36,7 +36,7 @@ const CategoryManager = ({isDarkMode,
       <button
       type="button"
         onClick={() => setOpen(!open)}
-        className="px-4  py-2 w-full bg-blue-600 text-white rounded-xl shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all"
+        className="px-4  py-2 w-[95%] bg-blue-700 text-white shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all"
       >
         Manage Categories
       </button>

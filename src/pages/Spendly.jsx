@@ -7,17 +7,14 @@ import ThemeToggle from '../components/ThemeToggle';
 import useDarkMode from "../hooks/useDarkMode"
 import useLocalStorage from '../hooks/useLocalStorage';
 import { ToastContainer, toast } from "react-toastify";
-
-
-
 import "react-toastify/dist/ReactToastify.css";
 
 
 
 const Spendly = () => {
 
-  const [isDarkMode, setIsDarkMode] = useDarkMode();
-   const [isModalOpen, setIsModalOpen] = useState(false);
+const [isDarkMode, setIsDarkMode] = useDarkMode();
+const [isModalOpen, setIsModalOpen] = useState(false);
 const [categories, setCategories] = useLocalStorage("categories", [
   { name: "Food", icon: "🍔", type:"default" },
   { name: "Transport", icon: "🚌", type:"default"  },

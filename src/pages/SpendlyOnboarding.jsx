@@ -17,20 +17,17 @@ const SpendlyOnboarding = () => {
       {/* Main Content */}
       <div className='absolute top-3 right-3'>
       <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={setIsDarkMode} />
-
       </div>
-      <div className="flex-1 flex flex-col justify-center px-6 py-8">
+      <div className="flex flex-1 flex-col items-center justify-center px-6 py-8">
         {/* App Icon */}
-        <div className="text-center mb-8">
-       <SpendlyLogo size={96} className="mx-auto mb-4 drop-shadow-2xl" />
-       
-
+        <div className="text-center mb-2 md:mb-8">
+       <SpendlyLogo size={80} className="mx-auto mb-2 drop-shadow-2xl" />
         </div>
 
         {/* Welcome Text */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Welcome to Spendly</h1>
-          <p className={`text-lg leading-relaxed px-4 max-w-md mx-auto ${
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-2xl md:text-4xl font-bold mb-4">Welcome to Spendly</h1>
+          <p className={`text-sm md:text-lg leading-relaxed px-4 max-w-md mx-auto ${
             isDarkMode ? 'text-white/80' : 'text-slate-600'
           }`}>
             Take control of your finances with smart expense tracking and insightful analytics
@@ -38,7 +35,7 @@ const SpendlyOnboarding = () => {
         </div>
 
         {/* Feature List */}
-        <div className="space-y-6 mb-12 max-w-lg mx-auto">
+        <div className="space-y-6 mb-12 md:mb-12 max-w-lg mx-auto">
           <div className="flex items-start gap-4">
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 ${
               isDarkMode ? 'bg-blue-500/20' : 'bg-blue-100'
@@ -48,8 +45,8 @@ const SpendlyOnboarding = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-1">Track Every Expense</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-slate-500'}`}>Add, categorize, and search through all your expenses with custom categories and smart filtering.</p>
+              <h3 className="md:text-lg font-semibold mb-1">Track Every Expense</h3>
+              <p className={`text-[12px] md:text-sm ${isDarkMode ? 'text-white/70' : 'text-slate-500'}`}>Add, categorize, and search through all your expenses with custom categories and smart filtering.</p>
             </div>
           </div>
 
@@ -62,8 +59,8 @@ const SpendlyOnboarding = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-1">Visual Analytics</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-slate-500'}`}>Get insights with beautiful charts, monthly summaries, and spending pattern analysis.</p>
+              <h3 className="md:text-lg font-semibold mb-1">Visual Analytics</h3>
+              <p className={`text-[12px] md:text-sm ${isDarkMode ? 'text-white/70' : 'text-slate-500'}`}>Get insights with beautiful charts, monthly summaries, and spending pattern analysis.</p>
             </div>
           </div>
 
@@ -76,8 +73,8 @@ const SpendlyOnboarding = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-1">Export & Backup</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-slate-500'}`}>Export your data to CSV for backup, taxes, or further analysis. Your data, your control.</p>
+              <h3 className="md:text-lg font-semibold mb-1">Export & Backup</h3>
+              <p className={`text-[12px] md:text-sm ${isDarkMode ? 'text-white/70' : 'text-slate-500'}`}>Export your data to CSV for backup, taxes, or further analysis. Your data, your control.</p>
             </div>
           </div>
         </div>

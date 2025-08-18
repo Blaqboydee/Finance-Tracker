@@ -67,7 +67,7 @@ const ExpenseForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, amount: e.target.value })
               }
-              className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+              className={`w-[95%] px-3 py-2  md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
             ${
               isDarkMode
                 ? "bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-500 hover:bg-slate-600"
@@ -91,7 +91,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, category: e.target.value })
                 }
-                className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
+                className={`w-[95%] px-3 py-2  md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
             ${
               isDarkMode
                 ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
@@ -107,7 +107,7 @@ const ExpenseForm = ({
                 ))}
               </select>
               <ChevronDown
-                className={`absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none ${
+                className={`absolute right-6 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none ${
                   isDarkMode ? "text-slate-500" : "text-slate-400"
                 }`}
               />
@@ -142,7 +142,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, date: e.target.value })
                 }
-                className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className={`w-[95%] px-3 py-2  md:px-4 md:py-3 border  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
               ${
                 isDarkMode
                   ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
@@ -168,7 +168,7 @@ const ExpenseForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
-              className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+              className={`w-[95%] px-3 py-2  md:px-4 md:py-3 border  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
           ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-500 hover:bg-slate-600"
@@ -189,7 +189,7 @@ const ExpenseForm = ({
           </label>
           <button
             type="submit"
-            className="w-full px-4 py-3 bg-blue-600 text-white rounded-xl hover:from-emerald-600 hover:to-blue-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl"
+            className="w-[95%] px-4 py-3 bg-blue-600 text-white hover:from-emerald-600 hover:to-blue-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl"
           >
             <PlusCircle className="w-5 h-5" />
             Add
