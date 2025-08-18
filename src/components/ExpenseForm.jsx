@@ -26,7 +26,7 @@ const ExpenseForm = ({
 
   return (
     <div
-      className={`rounded-2xl shadow-xl mb-6 p-6 border transition-colors duration-300
+      className={`rounded-lg shadow-xl mb-6 p-6 border transition-colors duration-300
     ${
       isDarkMode
         ? "bg-slate-800 border-slate-700 text-slate-100"

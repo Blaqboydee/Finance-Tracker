@@ -13,13 +13,13 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
 
   return (
   <div
-  className={`rounded-2xl shadow-xl mb-6 p-6 border transition-colors ${
+  className={`rounded-lg shadow-xl mb-6 p-6 border transition-colors ${
     isDarkMode
       ? "bg-slate-800 border-slate-700"
       : "bg-white border-slate-200"
   }`}
 >
-  <div className="flex md:flex-row flex-wrap sm:flex-col items-start sm:items-center gap-4">
+  <div className="flex flex-col sm:flex-row md:flex-row flex-wrap  items-start sm:items-center gap-4">
     {/* Filter */}
     <div className="flex items-center gap-3">
       <span
@@ -33,7 +33,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
         <select
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
-          className={`px-4 outline-none py-2 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
+          className={`px-4 outline-none py-2  focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
               : "bg-slate-50 border-slate-200 text-slate-900 hover:bg-white"
@@ -68,7 +68,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
         <select
           value={dateRange}
           onChange={(e) => setDateRange(e.target.value)}
-          className={`px-4 py-2 rounded-xl  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
+          className={`px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
               : "bg-slate-50 border-slate-200 text-slate-900 hover:bg-white"
@@ -101,7 +101,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
      onChange={(e)=>setDescription(e)}
   type="text"
   placeholder="Search by description"
-  className={`px-4 py-2 w-[80%]  outline-none rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10
+  className={`px-4 py-2 w-[80%]  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10
     ${
       isDarkMode
         ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600 placeholder-slate-300"

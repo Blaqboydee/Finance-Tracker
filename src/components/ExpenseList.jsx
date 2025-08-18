@@ -4,7 +4,7 @@ import { Trash2, PieChart } from 'lucide-react';
 const ExpenseList = ({ expenses, onDeleteExpense, isDarkMode }) => {
   return (
   <div
-  className={`rounded-2xl shadow-xl mb-6 p-6 border transition-colors duration-300
+  className={`rounded-lg shadow-xl mb-6 p-6 border transition-colors duration-300
     ${isDarkMode 
       ? "bg-slate-800 border-slate-700 text-slate-100" 
       : "bg-white border-slate-200 text-slate-900"
@@ -36,7 +36,7 @@ const ExpenseList = ({ expenses, onDeleteExpense, isDarkMode }) => {
       expenses.map((expense) => (
         <div
           key={expense.id}
-          className={`flex items-center justify-between p-1 md:p-4 border rounded-xl hover:shadow-md transition-all duration-200 group
+          className={`flex items-center justify-between p-1 md:p-4 border hover:shadow-md transition-all duration-200 group
             ${isDarkMode
               ? "bg-gradient-to-r from-slate-700 to-slate-800 border-slate-600"
               : "bg-gradient-to-r from-slate-50 to-white border-slate-100"
@@ -44,7 +44,7 @@ const ExpenseList = ({ expenses, onDeleteExpense, isDarkMode }) => {
         >
           <div className="flex items-center gap-4 flex-1">
             <div
-              className={`md:w-12 md:h-12 rounded-xl flex items-center justify-center text-xl
+              className={`w-6 h-6 md:w-12 md:h-12 flex items-center justify-center md:text-xl
                 ${isDarkMode
                   ? "bg-gradient-to-br from-blue-900/30 to-emerald-900/30"
                   : "bg-gradient-to-br from-blue-50 to-emerald-50"
@@ -60,7 +60,7 @@ const ExpenseList = ({ expenses, onDeleteExpense, isDarkMode }) => {
                 {expense.category}
               </div>
               <div
-                className={`text-sm 
+                className={`text-[11px] md:text-sm 
                   ${isDarkMode ? "text-slate-400" : "text-slate-500"}`}
               >
                 {expense.description}

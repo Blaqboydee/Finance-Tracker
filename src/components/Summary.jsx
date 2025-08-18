@@ -49,7 +49,7 @@ const Summary = ({ expenses, categories,isDarkMode }) => {
    <div
   className={`${
     isDarkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
-  } rounded-2xl shadow-xl p-6`}
+  } rounded-lg shadow-xl p-6`}
 >
   {/* Header */}
   <div className="flex items-center justify-between mb-6">

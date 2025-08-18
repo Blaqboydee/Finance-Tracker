@@ -5,7 +5,7 @@ import SpendlyOnboarding from './pages/SpendlyOnboarding'
 
 const App = () => {
   return (
-    <Routes>
+  <Routes>
   <Route path='/spendly' element={ <Spendly/>} />
   <Route path='/' element={<SpendlyOnboarding/>}/>
   </Routes>
