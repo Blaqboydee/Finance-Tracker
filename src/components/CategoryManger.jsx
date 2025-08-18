@@ -44,7 +44,7 @@ const CategoryManager = ({isDarkMode,
       {/* Dropdown Buttons */}
       <AnimatePresence>
         {open && (
-        <div className={`mt-6 ${isDarkMode ? "bg-gradient-to-br from-slate-800/90 to-slate-700/90" : "bg-gradient-to-br from-slate-50 to-slate-100"} p-6 rounded-xl border ${isDarkMode ? "border-slate-600/50" : "border-slate-200"} shadow-lg backdrop-blur-lg border-4 absolute z-10 md:w-[400px]`}>
+        <div className={`mt-6 ${isDarkMode ? "bg-gradient-to-br from-slate-800/90 to-slate-700/90" : "bg-gradient-to-br from-slate-50 to-slate-100"} p-6 rounded-xl border ${isDarkMode ? "border-slate-600/50" : "border-slate-200"} shadow-lg backdrop-blur-lg border-4 md:absolute z-10 md:w-[400px]`}>
   <div className="mb-4">
     <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">Category Actions</h3>
     <p className="text-sm text-slate-600 dark:text-slate-400">Choose an action to manage your categories</p>

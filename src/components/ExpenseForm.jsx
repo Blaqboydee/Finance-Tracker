@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { PlusCircle, Calendar, ChevronDown } from "lucide-react";
 import CategoryManager from "./CategoryManger";
+import SpendlyLogo from './SpendlyLogo';
+
 
 const ExpenseForm = ({
   formData,
@@ -31,19 +33,20 @@ const ExpenseForm = ({
         : "bg-white border-slate-200 text-slate-900"
     }`}
     >
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-2xl bg-blue-600 flex items-center justify-center">
-          <span className="text-white text-xl">💰</span>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-auto h-auto rounded-2xl flex items-center justify-center">
+                 <SpendlyLogo size={55} className="mx-autodrop-shadow-2xl" />
+
         </div>
         <h1
           className={`text-2xl font-bold bg-clip-text text-transparent
         ${
           isDarkMode
-            ? "bg-gradient-to-r from-slate-200 to-slate-400"
-            : "bg-gradient-to-r from-slate-800 to-slate-600"
+            ? "bg-slate-200 to-slate-400"
+            : "bg-slate-800 to-slate-600"
         }`}
         >
-          Finance Tracker
+          Spendly
         </h1>
       </div>
 
@@ -64,7 +67,7 @@ const ExpenseForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, amount: e.target.value })
               }
-              className={`w-full px-4 py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+              className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
             ${
               isDarkMode
                 ? "bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-500 hover:bg-slate-600"
@@ -88,7 +91,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, category: e.target.value })
                 }
-                className={`w-full px-4 py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
+                className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
             ${
               isDarkMode
                 ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
@@ -139,7 +142,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, date: e.target.value })
                 }
-                className={`w-full px-4 py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
               ${
                 isDarkMode
                   ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
@@ -151,7 +154,7 @@ const ExpenseForm = ({
           </div>
 
           {/* Description */}
-          <div className="mb-6">
+          <div className="mb-1 md:mb-6">
             <label
               className={`block text-sm font-medium mb-2 
           ${isDarkMode ? "text-slate-400" : "text-slate-600"}`}
@@ -165,7 +168,7 @@ const ExpenseForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
-              className={`w-full px-4 py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+              className={`w-full px-3 py-2  md:px-4 md:py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
           ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-500 hover:bg-slate-600"
