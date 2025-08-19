@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route ,  Navigate} from "react-router-dom";
 import Layout from "./pages/Layout";
 import Dashboard from "./pages/SplendlyDashboard";
-import Expenses from "./pages/expenses";
+import Expenses from "./pages/Expenses";
 import ExpenseSummary from "./pages/ExpenseSummary";
 import SpendlyOnboarding from "./pages/SpendlyOnboarding";
 
 function App() {
-  const hasOnboarded = localStorage.getItem("hasOnboarded") === "false";
+  const hasOnboarded = localStorage.getItem("hasOnboarded") === "true";
   return (
     <Routes>
       {/* Onboarding route (not inside Layout) */}
