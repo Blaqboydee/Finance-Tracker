@@ -1,7 +1,24 @@
+import React, {useState, useEffect} from "react"
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-const SpendingDistribution = ({ categoryTotals, isDarkMode }) => {
-    // console.log(categoryTotals);
+const SpendingDistribution = ({ categoryTotals, totalSpent }) => {
+  const [outerRadius, setOuterRadius] = useState(80);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) { // mobile
+        setOuterRadius(60);
+      } else if (window.innerWidth < 1024) { // tablet
+        setOuterRadius(70);
+      } else { // desktop
+        setOuterRadius(100);
+      }
+    };
+
+    handleResize(); // run on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
     
   const colors = [
     "#3B82F6", // blue-500
@@ -14,21 +31,17 @@ const SpendingDistribution = ({ categoryTotals, isDarkMode }) => {
 
   return (
   <div
-  className={`${
-    isDarkMode ? "bg-slate-800" : "bg-white"
-  } rounded-xl shadow p-4 w-[320px] md:w-[400px]`}
+  className={``}
 >
   <h3
-    className={`text-sm font-semibold mb-4 text-center ${
-      isDarkMode ? "text-slate-200" : "text-slate-700"
-    }`}
+    className={`text-sm font-semibold mb-4 text-center`}
   >
     Spending Distribution
   </h3>
 
   <div className="flex flex-col items-center justify-center gap-6">
     {/* Pie Chart */}
-    <div className="w-[300px] h-[250px] flex items-center justify-center">
+    <div className="w-[300px] h-[200px] flex items-center justify-center">
       {categoryTotals.length > 0 ? (
         <PieChart width={320} height={280}>
           <Pie
@@ -37,7 +50,7 @@ const SpendingDistribution = ({ categoryTotals, isDarkMode }) => {
             nameKey="name"
             cx="50%"
             cy="50%"
-            outerRadius={100}
+            outerRadius={outerRadius}
             label
           >
             {categoryTotals.map((entry, index) => (
@@ -59,11 +72,7 @@ const SpendingDistribution = ({ categoryTotals, isDarkMode }) => {
       {categoryTotals.map((category, index) => (
         <div
           key={category.name}
-          className={`flex items-center gap-2 p-2 rounded-lg border shadow-sm ${
-            isDarkMode
-              ? "bg-slate-700 border-slate-600"
-              : "bg-white border-slate-100"
-          }`}
+          className={`flex items-center gap-2 p-2 rounded-lg border shadow-sm `}
         >
           <div
             className="w-3 h-3 rounded-full"
@@ -71,18 +80,16 @@ const SpendingDistribution = ({ categoryTotals, isDarkMode }) => {
           ></div>
           <div className="flex-1 min-w-0">
             <div
-              className={`text-xs font-medium truncate ${
-                isDarkMode ? "text-slate-200" : "text-slate-700"
-              }`}
+              className={`text-xs font-medium truncate `}
             >
               {category.name}
             </div>
             <div
-              className={`text-xs ${
-                isDarkMode ? "text-slate-400" : "text-slate-500"
-              }`}
+              className={`text-xs`}
             >
-              {category.percentage}%
+              <p className="text-xs md:text-sm">
+  {((category.total / totalSpent) * 100).toFixed(1)}% of total
+</p>
             </div>
           </div>
         </div>

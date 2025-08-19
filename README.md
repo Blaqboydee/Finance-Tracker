@@ -75,3 +75,34 @@ Track, visualize, and manage your spending — all in one simple dashboard.
    ```bash
    git clone https://github.com/blaqboydee/spendly.git
    cd spendly
+
+
+
+   📖 Usage
+	1.	Add a new expense with description, amount, and category
+	2.	Create your own custom categories (edit or delete later)
+	3.	Filter or search expenses
+	4.	View monthly summary + pie chart visualization
+	5.	Export your expenses to CSV anytime
+	6.	Switch between Dark and Light mode 🌗
+
+⸻
+
+🗺 Future Improvements
+	•	🔑 User authentication
+	•	☁ Cloud sync for data
+	•	📊 Budget alerts & goals
+	•	📱 Mobile app version
+
+⸻
+
+🤝 Contributing
+
+Contributions are welcome!
+Fork this repo and submit a pull request if you’d like to improve Spendly.
+
+⸻
+
+📄 License
+
+This project is licensed under the MIT License.

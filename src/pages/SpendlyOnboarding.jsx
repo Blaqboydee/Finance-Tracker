@@ -11,7 +11,7 @@ const SpendlyOnboarding = () => {
     
     <div className={`min-h-screen flex flex-col transition-colors duration-300 ${
       isDarkMode 
-        ? 'bg-indigo-800 text-white' 
+        ? 'bg-slate-800 text-white' 
         : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 text-slate-800'
     }`}>
       {/* Main Content */}
@@ -83,11 +83,14 @@ const SpendlyOnboarding = () => {
       {/* Continue Button */}
       <div className="flex justify-center px-6 pb-8">
         <button 
-        onClick={()=>navigate("/spendly")}
+        onClick={()=>{
+          localStorage.setItem("hasOnboarded", "true");
+          navigate("/layout")
+        }}
         className={`md:w-1/2 w-full font-semibold py-4 px-6 rounded-2xl shadow-xl transform transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
           isDarkMode 
             ? 'bg-blue-600 hover:from-blue-600 hover:to-purple-700 text-white' 
-            : 'bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 text-white'
+            : 'bg-blue-600 hover:from-blue-700 hover:to-purple-800 text-white'
         }`}>
           Continue
         </button>

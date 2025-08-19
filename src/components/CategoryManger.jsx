@@ -36,7 +36,7 @@ const CategoryManager = ({isDarkMode,
       <button
       type="button"
         onClick={() => setOpen(!open)}
-        className="px-4  py-2 w-[100%] bg-blue-700 text-white shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all"
+        className=" w-[100%] md:px-4 md:py-3 py-2 text-[13px] rounded-sm  bg-blue-600 text-white shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all"
       >
         Manage Categories
       </button>
@@ -46,8 +46,8 @@ const CategoryManager = ({isDarkMode,
         {open && (
         <div className={`mt-6 ${isDarkMode ? "bg-gradient-to-br from-slate-800/90 to-slate-700/90" : "bg-gradient-to-br from-slate-50 to-slate-100"} p-6 rounded-xl border ${isDarkMode ? "border-slate-600/50" : "border-slate-200"} shadow-lg backdrop-blur-lg border-4 md:absolute z-10 md:w-[400px]`}>
   <div className="mb-4">
-    <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">Category Actions</h3>
-    <p className="text-sm text-slate-600 dark:text-slate-400">Choose an action to manage your categories</p>
+    <h3 className="text-sm md:text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">Category Actions</h3>
+    <p className="text-[11px] md:text-sm text-slate-600 dark:text-slate-400">Choose an action to manage your categories</p>
   </div>
   
   <div className="grid gap-3">
@@ -95,7 +95,7 @@ const CategoryManager = ({isDarkMode,
         type="button"
         variants={buttonVariants}
         onClick={() => handleClick(btn.action)}
-        className={`group relative overflow-hidden px-3 py-3 bg-gradient-to-r ${btn.gradient} text-white rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]`}
+        className={`group relative overflow-hidden px-3 py-2 md:py-3 bg-gradient-to-r ${btn.gradient} text-white rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]`}
       >
         <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div className="relative flex items-center justify-between">
@@ -104,8 +104,8 @@ const CategoryManager = ({isDarkMode,
               {btn.icon}
             </div>
             <div className="text-left">
-              <div className="font-semibold text-base">{btn.text}</div>
-              <div className="text-sm text-white/80">{btn.description}</div>
+              <div className="text-[11px] md:text-sm font-semibold">{btn.text}</div>
+              <div className="text-[10px] md:text-sm text-white/80">{btn.description}</div>
             </div>
           </div>
           <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">

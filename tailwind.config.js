@@ -1,4 +1,4 @@
-// tailwind.config.cjs  (or tailwind.config.js if using ESM)
+
 module.exports = {
   darkMode:"class",
   content: [

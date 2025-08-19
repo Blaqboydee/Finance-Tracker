@@ -23,7 +23,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
     {/* Filter */}
     <div className="flex items-center gap-3">
       <span
-        className={`text-sm font-semibold uppercase tracking-wide ${
+        className={`text-[10px] md:text-sm font-semibold uppercase tracking-wide ${
           isDarkMode ? "text-slate-300" : "text-slate-700"
         }`}
       >
@@ -33,7 +33,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
         <select
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
-          className={`px-4 outline-none py-2  focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
+          className={`px-4 outline-none py-2 text-[10px] rounded-md md:text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
               : "bg-slate-50 border-slate-200 text-slate-900 hover:bg-white"
@@ -58,7 +58,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
     {/* Period */}
     <div className="flex items-center gap-3">
       <span
-        className={`text-sm font-semibold uppercase tracking-wide ${
+        className={`text-[10px] md:text-sm font-semibold uppercase tracking-wide ${
           isDarkMode ? "text-slate-300" : "text-slate-700"
         }`}
       >
@@ -68,7 +68,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
         <select
           value={dateRange}
           onChange={(e) => setDateRange(e.target.value)}
-          className={`px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
+          className={`px-4 py-2 text-[10px] rounded-md md:text-sm outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10 ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
               : "bg-slate-50 border-slate-200 text-slate-900 hover:bg-white"
@@ -91,7 +91,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
 
     <div className='flex items-center gap-3'>
        <span
-        className={`text-sm font-semibold uppercase tracking-wide ${
+        className={`text-[10px] md:text-sm font-semibold uppercase tracking-wide ${
           isDarkMode ? "text-slate-300" : "text-slate-700"
         }`}
       >
@@ -101,7 +101,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
      onChange={(e)=>setDescription(e)}
   type="text"
   placeholder="Search by description"
-  className={`px-4 py-2 w-[80%]  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10
+  className={`px-4 py-2 w-[80%] text-[10px] rounded-md md:text-sm  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10
     ${
       isDarkMode
         ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600 placeholder-slate-300"

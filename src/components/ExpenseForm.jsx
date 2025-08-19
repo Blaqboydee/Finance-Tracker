@@ -26,27 +26,23 @@ const ExpenseForm = ({
 
   return (
     <div
-      className={`rounded-lg shadow-xl mb-6 p-6 border transition-colors duration-300
+      className={`border rounded-lg shadow-xl mb-6 p-6
     ${
       isDarkMode
-        ? "bg-slate-800 border-slate-700 text-slate-100"
-        : "bg-white border-slate-200 text-slate-900"
+        ? "bg-slate-800 border-slate-700 text-slate-100" 
+          : "bg-white border-slate-200 text-slate-900"
     }`}
     >
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-auto h-auto rounded-2xl flex items-center justify-center">
-                 <SpendlyLogo size={55} className="mx-autodrop-shadow-2xl" />
-
-        </div>
         <h1
-          className={`text-2xl font-bold bg-clip-text text-transparent
+          className={`md:text-2xl font-bold bg-clip-text text-transparent
         ${
           isDarkMode
             ? "bg-slate-200 to-slate-400"
             : "bg-slate-800 to-slate-600"
         }`}
         >
-          Spendly
+         Record your spending
         </h1>
       </div>
 
@@ -55,7 +51,7 @@ const ExpenseForm = ({
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
           <div className="relative">
             <label
-              className={`block text-sm font-medium mb-2 
+              className={`block text-[13px] md:text-sm font-medium mb-2 
             ${isDarkMode ? "text-slate-400" : "text-slate-600"}`}
             >
               Amount
@@ -67,7 +63,7 @@ const ExpenseForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, amount: e.target.value })
               }
-              className={`w-[100%] px-3 py-2  md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+              className={`w-[100%] text-[11px] rounded-sm px-3 py-2  md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
             ${
               isDarkMode
                 ? "bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-500 hover:bg-slate-600"
@@ -80,7 +76,7 @@ const ExpenseForm = ({
           {/* Category */}
           <div>
             <label
-              className={`block text-sm font-medium mb-2 
+              className={`block text-[13px]  text-sm font-medium mb-2 
       ${isDarkMode ? "text-slate-400" : "text-slate-600"}`}
             >
               Category
@@ -91,7 +87,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, category: e.target.value })
                 }
-                className={`w-[100%] px-3 py-2  md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
+                className={`w-[100%]  text-[11px] rounded-sm px-3 py-2  md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
             ${
               isDarkMode
                 ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
@@ -130,7 +126,7 @@ const ExpenseForm = ({
           {/* Date */}
           <div>
             <label
-              className={`block text-sm font-medium mb-2 
+              className={`block text-[13px] md:text-sm font-medium mb-2 
             ${isDarkMode ? "text-slate-400" : "text-slate-600"}`}
             >
               Date
@@ -142,7 +138,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, date: e.target.value })
                 }
-                className={`w-[95%] px-3 py-2  md:px-4 md:py-3 border  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className={`w-[100%] px-3 py-2 text-[11px] rounded-sm  md:px-4 md:py-3 border  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
               ${
                 isDarkMode
                   ? "bg-slate-700 border-slate-600 text-slate-100 hover:bg-slate-600"
@@ -156,7 +152,7 @@ const ExpenseForm = ({
           {/* Description */}
           <div className="mb-1 md:mb-6">
             <label
-              className={`block text-sm font-medium mb-2 
+              className={`block text-[13px] text md:text-sm font-medium mb-2 
           ${isDarkMode ? "text-slate-400" : "text-slate-600"}`}
             >
               Description
@@ -168,7 +164,7 @@ const ExpenseForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
-              className={`w-[100%] px-3 py-2  md:px-4 md:py-3 border  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+              className={`w-[100%] px-3 py-2 text-[11px] rounded-sm  md:px-4 md:py-3 border  outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
           ${
             isDarkMode
               ? "bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-500 hover:bg-slate-600"
@@ -189,7 +185,7 @@ const ExpenseForm = ({
           </label>
           <button
             type="submit"
-            className="w-[100%] px-4 py-3 bg-blue-600 text-white hover:from-emerald-600 hover:to-blue-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl"
+            className="w-[100%] md:px-4 md:py-3 py-2 text-[13px] rounded-sm  bg-blue-600 text-white hover:from-emerald-600 hover:to-blue-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl"
           >
             <PlusCircle className="w-5 h-5" />
             Add
