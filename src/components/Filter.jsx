@@ -17,7 +17,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
         
         {/* Filter by Category */}
         <div className="flex items-center gap-2 md:gap-3">
-          <span className="text-[11px] md:text-sm font-semibold uppercase tracking-wide
+          <span className="text-base md:text-sm font-semibold uppercase tracking-wide
                            text-slate-700 dark:text-slate-300">
             Filter:
           </span>
@@ -25,7 +25,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="px-3 md:px-4 py-2 text-[11px] md:text-sm rounded-md outline-none 
+              className="px-3 md:px-4 py-2 text-base md:text-sm rounded-md outline-none 
                          focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all 
                          appearance-none cursor-pointer pr-8 md:pr-10
                          bg-slate-50 border-slate-200 text-slate-900 hover:bg-white
@@ -47,7 +47,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
 
         {/* Filter by Period */}
         <div className="flex items-center gap-2 md:gap-3">
-          <span className="text-[11px] md:text-sm font-semibold uppercase tracking-wide
+          <span className="text-base md:text-sm font-semibold uppercase tracking-wide
                            text-slate-700 dark:text-slate-300">
             Period:
           </span>
@@ -55,7 +55,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
             <select
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value)}
-              className="px-3 md:px-4 py-2 text-[11px] md:text-sm rounded-md outline-none 
+              className="px-3 md:px-4 py-2 text-base md:text-sm rounded-md outline-none 
                          focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all 
                          appearance-none cursor-pointer pr-8 md:pr-10
                          bg-slate-50 border-slate-200 text-slate-900 hover:bg-white
@@ -76,7 +76,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
 
         {/* Search by Description */}
         <div className="flex items-center gap-2 md:gap-3 flex-1">
-          <span className="text-[11px] md:text-sm font-semibold uppercase tracking-wide
+          <span className="text-base md:text-sm font-semibold uppercase tracking-wide
                            text-slate-700 dark:text-slate-300">
             Search:
           </span>
@@ -84,7 +84,7 @@ const Filter = ({ filterCategory, setFilterCategory, categories, dateRange, setD
             type="text"
             placeholder="Search by description"
             onChange={(e) => setDescription(e.target.value)}
-            className="flex-1 px-3 md:px-4 py-2 text-[11px] md:text-sm rounded-md outline-none 
+            className="flex-1 px-3 md:px-4 py-2 text-base md:text-sm rounded-md outline-none 
                        focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all 
                        placeholder:italic
                        bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-500 hover:bg-white

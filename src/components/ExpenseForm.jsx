@@ -22,7 +22,7 @@ const ExpenseForm = ({
 
   return (
     <div className="flex-1 overflow-y-auto px-0 md:px-6 pb-2 pt-4">
-      <div className="border rounded-lg shadow-xl mb-6 p-6 bg-white border-slate-200 text-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100">
+      <div className="border rounded-lg shadow-xl mb-6 p-4 bg-white border-slate-200 text-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100">
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
           <h1 className="md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400">
@@ -35,7 +35,7 @@ const ExpenseForm = ({
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Amount */}
             <div className="relative">
-              <label className="block text-[13px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
+              <label className="block text-[15px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
                 Amount
               </label>
               <input
@@ -54,7 +54,7 @@ const ExpenseForm = ({
 
             {/* Category */}
             <div>
-              <label className="block text-[13px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
+              <label className="block text-[15px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
                 Category
               </label>
               <div className="relative">
@@ -93,7 +93,7 @@ const ExpenseForm = ({
 
             {/* Date */}
             <div>
-              <label className="block text-[13px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
+              <label className="block text-[15px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
                 Date
               </label>
               <input
@@ -102,7 +102,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, date: e.target.value })
                 }
-                className="w-full text-base md:text-sm px-3 py-2 md:px-4 md:py-3 rounded-sm border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className="w-[96%] text-base md:text-sm px-3 py-2 md:px-4 md:py-3 rounded-sm border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
                   bg-slate-50 border-slate-200 text-slate-900 hover:bg-white
                   dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100 dark:hover:bg-slate-600"
                 required
@@ -111,7 +111,7 @@ const ExpenseForm = ({
 
             {/* Description */}
             <div>
-              <label className="block text-[13px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
+              <label className="block text-[15px] md:text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">
                 Description
               </label>
               <input
@@ -136,7 +136,7 @@ const ExpenseForm = ({
             </label>
             <button
               type="submit"
-              className="w-full md:px-4 md:py-3 py-2 text-[13px] rounded-sm bg-blue-600 text-white font-medium shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-200"
+              className="w-full md:px-4 md:py-3 py-2 text-[15px] rounded-sm bg-blue-600 text-white font-medium shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-200"
             >
               <PlusCircle className="w-5 h-5" />
               Add
