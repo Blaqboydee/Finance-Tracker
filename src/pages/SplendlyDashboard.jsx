@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { useOutletContext, NavLink, useNavigate } from 'react-router-dom';
+import useDarkMode from "../hooks/useDarkMode";
+
 
 const calcCategoryTotals = (expenses, categories) => {
   if (!expenses.length || !categories.length) return [];
@@ -28,7 +30,8 @@ const categoryMap = {
 
 const SpendlyDashboard = () => {
   const navigate = useNavigate()
-  const { isDarkMode } = useOutletContext();
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
+
 
   // Initialize from localStorage just once
   const [expenses, setExpenses] = useState(() => {

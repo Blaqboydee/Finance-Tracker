@@ -5,10 +5,13 @@ import ExpenseForm from "../components/ExpenseForm";
 import useLocalStorage from "../hooks/useLocalStorage";
 import Filter from "../components/Filter";
 import ExpenseList from "../components/ExpenseList";
+import useDarkMode from "../hooks/useDarkMode";
+
 import { useOutletContext } from "react-router-dom";
 
 const Expenses = () => {
-  const { isDarkMode } = useOutletContext();
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
+  
 
   const [formData, setFormData] = useState({
     amount: "",

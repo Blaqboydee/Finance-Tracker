@@ -163,4 +163,4 @@ const Summary = ({ expenses, categories }) => {
   );
 };
 
-export default Summary;
+export default Summary
