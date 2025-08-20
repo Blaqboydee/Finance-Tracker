@@ -45,7 +45,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, amount: e.target.value })
                 }
-                className="w-full text-[11px] md:text-sm rounded-sm px-3 py-2 md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className="w-full text-base md:text-sm rounded-sm px-3 py-2 md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
                   bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 hover:bg-white
                   dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100 dark:placeholder-slate-500 dark:hover:bg-slate-600"
                 required
@@ -63,7 +63,7 @@ const ExpenseForm = ({
                   onChange={(e) =>
                     setFormData({ ...formData, category: e.target.value })
                   }
-                  className="w-full text-[11px] md:text-sm rounded-sm px-3 py-2 md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
+                  className="w-full text-base md:text-sm rounded-sm px-3 py-2 md:px-4 md:py-3 border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer
                     bg-slate-50 border-slate-200 text-slate-900 hover:bg-white
                     dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100 dark:hover:bg-slate-600"
                   required
@@ -102,7 +102,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, date: e.target.value })
                 }
-                className="w-full text-[11px] md:text-sm px-3 py-2 md:px-4 md:py-3 rounded-sm border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className="w-full text-base md:text-sm px-3 py-2 md:px-4 md:py-3 rounded-sm border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
                   bg-slate-50 border-slate-200 text-slate-900 hover:bg-white
                   dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100 dark:hover:bg-slate-600"
                 required
@@ -121,7 +121,7 @@ const ExpenseForm = ({
                 onChange={(e) =>
                   setFormData({ ...formData, description: e.target.value })
                 }
-                className="w-full text-[11px] md:text-sm px-3 py-2 md:px-4 md:py-3 rounded-sm border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
+                className="w-full text-base md:text-sm px-3 py-2 md:px-4 md:py-3 rounded-sm border outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all
                   bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 hover:bg-white
                   dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100 dark:placeholder-slate-500 dark:hover:bg-slate-600"
                 required

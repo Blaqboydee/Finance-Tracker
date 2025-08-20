@@ -11,7 +11,7 @@ import { Sun, Moon } from 'lucide-react';
 
 function App() {
   const location = useLocation()
-  const hasOnboarded = localStorage.getItem("hasOnboarded") === "false";
+  const hasOnboarded = localStorage.getItem("hasOnboarded") === "true";
 
   // Dark mode state
   const [isDarkMode, setIsDarkMode] = useState(() => {
