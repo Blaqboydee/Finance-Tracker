@@ -176,11 +176,7 @@ const Expenses = () => {
   };
 
   return (
-    <div
-      className={`max-h-[80vh] py-20 px-4 justify-center items-center font-sans transition-colors duration-300 ${
-        isDarkMode ? "bg-slate-800" : "bg-white"
-      }`}
-    >
+    <div className="space-y-6 font-sans transition-colors duration-300">
       <ExpenseForm
         formData={formData}
         setFormData={setFormData}
