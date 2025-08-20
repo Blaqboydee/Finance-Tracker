@@ -25,7 +25,7 @@ const ExpenseForm = ({
       <div className="border rounded-lg shadow-xl mb-6 p-4 bg-white border-slate-200 text-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100">
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
-          <h1 className="md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400">
+          <h1 className="text-lg md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400">
             Record your spending
           </h1>
         </div>

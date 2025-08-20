@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ExpenseForm from "../components/ExpenseForm";
@@ -8,8 +8,9 @@ import ExpenseList from "../components/ExpenseList";
 
 const Expenses = () => {
  
-  
+    const expenseListRef = useRef(null);
 
+ const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     amount: "",
     category: "",
@@ -73,6 +74,7 @@ const Expenses = () => {
 
       // Add new expense to the beginning of the array
       setExpenses((prevExpenses) => [newExpense, ...prevExpenses]);
+
       toast.success("Expense recorded successfully!")
       // Reset form data
       setFormData({
@@ -81,6 +83,18 @@ const Expenses = () => {
         date: new Date().toISOString().split("T")[0],
         description: "",
       });
+
+    setTimeout(() => {
+  if (expenseListRef.current) {
+    expenseListRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start", // or 'center'
+    });
+  }
+  setIsOpen(true);
+}, 300);
+ 
+
     }
   };
 
@@ -171,7 +185,9 @@ const Expenses = () => {
   filteredExpenses = filterByDescription(filteredExpenses, desc);
 
   const setDescription = (e) => {
-    setDesc(e.target.value);
+    console.log(e);
+    
+    setDesc(e);
     filterByDescription(expenses, desc);
   };
 
@@ -199,15 +215,19 @@ const Expenses = () => {
         dateRange={dateRange}
         setDateRange={setDateRange}
         categories={categories}
-  
         setDescription={setDescription}
       />
 
-      <ExpenseList
+
+     <div ref={expenseListRef}>
+       <ExpenseList
         expenses={filteredExpenses}
         onDeleteExpense={handleDeleteExpense}
-
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
       />
+     </div>
+   
       <ToastContainer />
     </div>
   );

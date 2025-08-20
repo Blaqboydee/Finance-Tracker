@@ -14,6 +14,9 @@ const CategoryManager = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [activeAction, setActiveAction] = useState(null); // "add" | "edit" | "delete"
+  const [manageButtontext, setManageButtontext] = useState("Click to manage categories")
+
+  setManageButtontext
 
   const buttonVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -34,10 +37,13 @@ const CategoryManager = ({
       {/* Main Button */}
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          setOpen(!open)
+          setManageButtontext(open? "Manage Categories" : "Close Tabs")
+        }}
         className="w-full md:px-4 md:py-3 py-2 text-[13px] rounded-sm bg-blue-600 text-white shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all"
       >
-        Manage Categories
+       {manageButtontext}
       </button>
 
       {/* Dropdown Buttons */}
@@ -48,7 +54,7 @@ const CategoryManager = ({
               <h3 className="text-sm md:text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">
                 Category Actions
               </h3>
-              <p className="text-[11px] md:text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-[13px] md:text-sm text-slate-600 dark:text-slate-400">
                 Choose an action to manage your categories
               </p>
             </div>
@@ -140,10 +146,10 @@ const CategoryManager = ({
                         {btn.icon}
                       </div>
                       <div className="text-left">
-                        <div className="text-[11px] md:text-sm font-semibold">
+                        <div className="text-[13px] md:text-sm font-semibold">
                           {btn.text}
                         </div>
-                        <div className="text-[10px] md:text-sm text-white/80">
+                        <div className="text-[12px] md:text-sm text-white/80">
                           {btn.description}
                         </div>
                       </div>

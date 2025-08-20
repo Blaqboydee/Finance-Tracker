@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Trash2, ChevronDown, ChevronRight } from 'lucide-react';
 
-const ExpenseList = ({ expenses, onDeleteExpense }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const ExpenseList = ({ expenses, onDeleteExpense,isOpen, setIsOpen }) => {
+ 
 
   return (
     <div

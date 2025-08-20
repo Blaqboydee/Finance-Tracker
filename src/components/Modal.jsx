@@ -47,19 +47,19 @@ const Modal = ({
             className="fixed top-1/4 w-[80%] md:w-96 bg-gray-100 dark:bg-gray-700 p-3 rounded-2xl shadow-xl"
           >
             {/* Modal Title */}
-            <h2 className="text-sm md:text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-4">
               {actionTitles[action]}
             </h2>
 
             {/* Add Category */}
             {action === "add" && (
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2">
                 <input
                   type="text"
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
                   placeholder="Enter category name"
-                  className="w-full text-[11px] md:text-sm px-4 py-2 rounded-lg border mb-4 outline-none bg-slate-50 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100"
+                  className="w-10/12 text-[16px] md:text-sm px-4 py-2 rounded-lg border outline-none bg-slate-50 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100"
                 />
                 <button
                   type="button"
@@ -67,7 +67,7 @@ const Modal = ({
                     handleAddCategory();
                     onClose();
                   }}
-                  className="px-4 py-2 text-[11px] md:text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+                  className="px-4 py-2.5 text-[13px] md:text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700"
                 >
                   Add
                 </button>
@@ -91,7 +91,7 @@ const Modal = ({
                           type="text"
                           onChange={(e) => setnewName(e.target.value)}
                           placeholder={category.name}
-                          className="flex-1 border border-slate-300 dark:border-slate-600 rounded-md px-3 py-2 text-sm bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400"
+                          className="flex-1 text-base border border-slate-300 dark:border-slate-600 rounded-md px-3 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400"
                         />
                         <button
                           type="button"
@@ -149,7 +149,7 @@ const Modal = ({
             <button
               type="button"
               onClick={onClose}
-              className="mt-6 px-4 py-2 text-[11px] md:text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
+              className="mt-6 px-4 py-2 text-[13px] md:text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
             >
               Close
             </button>
