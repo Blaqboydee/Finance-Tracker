@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-import { useOutletContext, NavLink, useNavigate } from 'react-router-dom';
-import useDarkMode from "../hooks/useDarkMode";
-
+import { useNavigate } from "react-router-dom";
 
 const calcCategoryTotals = (expenses, categories) => {
   if (!expenses.length || !categories.length) return [];
@@ -23,17 +21,9 @@ const categoryMap = {
   Healthcare: "Health"
 };
 
-
-
-
-
-
 const SpendlyDashboard = () => {
-  const navigate = useNavigate()
-  const [isDarkMode, setIsDarkMode] = useDarkMode();
+  const navigate = useNavigate();
 
-
-  // Initialize from localStorage just once
   const [expenses, setExpenses] = useState(() => {
     return JSON.parse(localStorage.getItem("finance-tracker-expenses")) || [];
   });
@@ -42,16 +32,13 @@ const SpendlyDashboard = () => {
     return JSON.parse(localStorage.getItem("categories")) || [];
   });
 
-  // Derived states
   const [totalExpense, setTotalExpense] = useState(0);
   const [highestAmount, setHighestAmount] = useState(0);
   const [highestCategory, setHighestCategory] = useState(null);
 
-  // Slice + totals (no problem keeping these inline)
   const recentExpenses = expenses.slice(0, 3);
   const categoryTotals = calcCategoryTotals(expenses, categories);
 
-  //  Calculate totals when expenses change
   useEffect(() => {
     if (expenses.length === 0) {
       setTotalExpense(0);
@@ -75,12 +62,6 @@ const SpendlyDashboard = () => {
     setHighestCategory(highest);
   }, [expenses]);
 
-  // console.log(expenses);
-  
-
-  // Keep original biggest category logic (fallback safe)
-  const biggestExpense = expenses.length > 0 ? expenses[0] : null;
-
   const colors = [
     "#3B82F6", // blue
     "#10B981", // green
@@ -90,279 +71,193 @@ const SpendlyDashboard = () => {
     "#6366F1", // indigo
   ];
 
-
   const [outerRadius, setOuterRadius] = useState(80);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) { // mobile
+      if (window.innerWidth < 640) {
         setOuterRadius(50);
-      } else if (window.innerWidth < 1024) { // tablet
+      } else if (window.innerWidth < 1024) {
         setOuterRadius(70);
-      } else { // desktop
+      } else {
         setOuterRadius(100);
       }
     };
 
-    handleResize(); // run on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Empty state placeholder component
   const EmptyState = ({ title, description, icon }) => (
     <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
-      <div className={`text-6xl mb-4 opacity-50 ${isDarkMode ? "text-slate-600" : "text-slate-300"}`}>
+      <div className="text-6xl mb-4 opacity-50 text-slate-300 dark:text-slate-600">
         {icon}
       </div>
-      <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? "text-slate-300" : "text-slate-600"}`}>
+      <h3 className="text-lg font-semibold mb-2 text-slate-600 dark:text-slate-300">
         {title}
       </h3>
-      <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-slate-500"}`}>
-        {description}
-      </p>
+      <p className="text-sm text-slate-500 dark:text-slate-400">{description}</p>
     </div>
   );
 
   return (
-   <div
-  className={`min-h-full flex justify-center font-sans transition-colors duration-300 pt-2 ${
-    isDarkMode ? "" : ""
-  }`}
->
-  <div className="w-full max-w-5xl">
-    {/* Header */}
-    <div
-      className={`p-2 md:p-6 rounded-t-3xl border backdrop-blur-sm shadow-lg transition-all duration-300 ${
-        isDarkMode
-          ? "bg-slate-800 border-slate-700 text-slate-100 shadow-slate-900/20"
-          : "bg-white border border-slate-200 text-slate-900 shadow-slate-200/20"
-      }`}
-    >
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 gap-4">
-        {/* Total Expense */}
-        <div
-          className={`p-1 md:p-4 flex flex-col justify-center rounded-2xl border text-center transition-all duration-300 hover:scale-[1.02] ${
-            isDarkMode
-              ? "bg-gradient-to-br from-slate-700/60 to-slate-700/40 border-slate-600/50 hover:border-slate-500"
-              : "bg-gradient-to-br from-white to-slate-50 border-slate-200/50 hover:border-slate-300 shadow-sm"
-          }`}
-        >
-          <div
-            className={`text-[11px] md:text-sm font-medium mb-1 ${
-              isDarkMode ? "text-slate-400" : "text-slate-500"
-            }`}
-          >
-            Total Expense
-          </div>
-          <div
-            className={`md:text-2xl font-bold ${
-              isDarkMode ? "text-white" : "text-slate-800"
-            }`}
-          >
-            {totalExpense > 0 ? `₦ ${totalExpense.toLocaleString()}` : "₦0"}
-          </div>
-          {totalExpense === 0 && (
-            <div
-              className={`text-xs mt-1 ${
-                isDarkMode ? "text-slate-500" : "text-slate-400"
-              }`}
-            >
-              Start tracking expenses
+    <div className="min-h-full flex justify-center font-sans transition-colors duration-300 pt-2">
+      <div className="w-full max-w-5xl">
+        {/* Header */}
+        <div className="p-2 md:p-6 rounded-t-3xl border backdrop-blur-sm shadow-lg transition-all duration-300 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Total Expense */}
+            <div className="p-1 md:p-4 flex flex-col justify-center rounded-2xl border text-center transition-all duration-300 hover:scale-[1.02] bg-gradient-to-br from-white to-slate-50 dark:from-slate-700/60 dark:to-slate-700/40 border-slate-200/50 dark:border-slate-600/50 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm">
+              <div className="text-[11px] md:text-sm font-medium mb-1 text-slate-500 dark:text-slate-400">
+                Total Expense
+              </div>
+              <div className="md:text-2xl font-bold text-slate-800 dark:text-white">
+                {totalExpense > 0 ? `₦ ${totalExpense.toLocaleString()}` : "₦0"}
+              </div>
+              {totalExpense === 0 && (
+                <div className="text-xs mt-1 text-slate-400 dark:text-slate-500">
+                  Start tracking expenses
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {/* Biggest Category */}
-        <div
-          className={`p-1 md:p-4 rounded-2xl border text-center transition-all duration-300 hover:scale-[1.02] ${
-            isDarkMode
-              ? "bg-gradient-to-br from-slate-700/60 to-slate-700/40 border-slate-600/50 hover:border-slate-500"
-              : "bg-gradient-to-br from-white to-slate-50 border-slate-200/50 hover:border-slate-300 shadow-sm"
-          }`}
-        >
-          <div
-            className={`text-[11px] md:text-sm font-medium mb-1 ${
-              isDarkMode ? "text-slate-400" : "text-slate-500"
-            }`}
-          >
-            Biggest Category
+            {/* Biggest Category */}
+            <div className="p-1 md:p-4 rounded-2xl border text-center transition-all duration-300 hover:scale-[1.02] bg-gradient-to-br from-white to-slate-50 dark:from-slate-700/60 dark:to-slate-700/40 border-slate-200/50 dark:border-slate-600/50 hover:border-slate-300 dark:hover:border-slate-500 shadow-sm">
+              <div className="text-[11px] md:text-sm font-medium mb-1 text-slate-500 dark:text-slate-400">
+                Biggest Category
+              </div>
+              {highestAmount ? (
+                <>
+                  <div className="text-sm md:text-lg font-bold text-slate-800 dark:text-white">
+                    {highestCategory.category}
+                  </div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">
+                    ₦ {highestAmount.toLocaleString()}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-lg font-bold text-slate-400 dark:text-slate-500">
+                    —
+                  </div>
+                  <div className="text-xs mt-1 text-slate-400 dark:text-slate-600">
+                    ₦0
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-          {highestAmount ? (
-            <>
-              <div
-                className={`text-sm md:text-lg font-bold ${
-                  isDarkMode ? "text-white" : "text-slate-800"
-                }`}
-              >
-                {highestCategory.category}
-              </div>
-              <div
-                className={`text-sm ${
-                  isDarkMode ? "text-slate-400" : "text-slate-500"
-                }`}
-              >
-                ₦ {highestAmount.toLocaleString()}
-              </div>
-            </>
-          ) : (
-            <>
-              <div
-                className={`text-lg font-bold ${
-                  isDarkMode ? "text-slate-500" : "text-slate-400"
-                }`}
-              >
-                —
-              </div>
-              <div
-                className={`text-xs mt-1 ${
-                  isDarkMode ? "text-slate-600" : "text-slate-400"
-                }`}
-              >
-                ₦0
-              </div>
-            </>
-          )}
         </div>
-      </div>
-    </div>
 
-    {/* Main Content */}
-    <div
-      className={`flex-1 p-6 border-x border-b rounded-b-3xl backdrop-blur-sm shadow-lg transition-all duration-300 ${
-        isDarkMode
-          ? "bg-slate-800/40 border-slate-700/50 shadow-slate-900/20"
-          : "bg-white border border-slate-200 text-slate-900 shadow-slate-200/20"
-      }`}
-    >
-      {/* Chart + Recent Expenses */}
-      <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-6 mb-8">
-        {/* Chart Section */}
-        <div className="h-48 w-full lg:w-1/2 md:h-80">
-          {categoryTotals.length > 0 ? (
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={categoryTotals}
-                  dataKey="total"
-                  nameKey="name"
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={outerRadius}
-                  label={({ name, percent }) =>
-                    `${categoryMap[name] || name} ${(percent * 100).toFixed(0)}%`
-                  }
-                >
-                  {categoryTotals.map((_, index) => (
-                    <Cell
-                      key={index}
-                      fill={colors[index % colors.length]}
+        {/* Main Content */}
+        <div className="flex-1 p-6 border-x border-b rounded-b-3xl backdrop-blur-sm shadow-lg transition-all duration-300 bg-white dark:bg-slate-800/40 border-slate-200 dark:border-slate-700/50 text-slate-900 dark:text-slate-100">
+          {/* Chart + Recent Expenses */}
+          <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-6 mb-8">
+            {/* Chart Section */}
+            <div className="h-48 w-full lg:w-1/2 md:h-80">
+              {categoryTotals.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={categoryTotals}
+                      dataKey="total"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={outerRadius}
+                      label={({ name, percent }) =>
+                        `${categoryMap[name] || name} ${(percent * 100).toFixed(0)}%`
+                      }
+                    >
+                      {categoryTotals.map((_, index) => (
+                        <Cell
+                          key={index}
+                          fill={colors[index % colors.length]}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip
+                      formatter={(value) => [
+                        `₦${value.toLocaleString()}`,
+                        "Amount",
+                      ]}
                     />
-                  ))}
-                </Pie>
-                <Tooltip
-                  formatter={(value) => [
-                    `₦${value.toLocaleString()}`,
-                    "Amount",
-                  ]}
-                />
-              </PieChart>
-            </ResponsiveContainer>
-          ) : (
-            <div className="h-full flex items-center justify-center">
-              <EmptyState
-                icon="📊"
-                title="No Data"
-                description="Your spending chart will appear here once you add expenses"
-              />
+                  </PieChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="h-full flex items-center justify-center">
+                  <EmptyState
+                    icon="📊"
+                    title="No Data"
+                    description="Your spending chart will appear here once you add expenses"
+                  />
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {/* Recent Expenses */}
-        <div className="w-full md:w-1/2">
-          <h2
-            className={`text-sm md:text-xl font-bold mb-4 ${
-              isDarkMode ? "text-white" : "text-slate-800"
-            }`}
-          >
-            Recent Expenses
-          </h2>
-          <div className="space-y-3">
-            {recentExpenses.length > 0 ? (
-              recentExpenses.map((expense, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center justify-between p-3 rounded-xl transition-all duration-200 hover:scale-[1.01] ${
-                    isDarkMode
-                      ? "bg-slate-700/30 hover:bg-slate-700/50"
-                      : "bg-white/50 hover:bg-white/80 shadow-sm"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
+            {/* Recent Expenses */}
+            <div className="w-full md:w-1/2">
+              <h2 className="text-sm md:text-xl font-bold mb-4 text-slate-800 dark:text-white">
+                Recent Expenses
+              </h2>
+              <div className="space-y-3">
+                {recentExpenses.length > 0 ? (
+                  recentExpenses.map((expense, index) => (
                     <div
-                      className={`w-3 h-3 rounded-full ${
-                        expense.category === "Food"
-                          ? "bg-red-400"
-                          : expense.category === "Transport"
-                          ? "bg-blue-400"
-                          : expense.category === "Entertainment"
-                          ? "bg-purple-400"
-                          : "bg-green-400"
-                      }`}
-                    />
-                    <div>
-                      <div
-                        className={`text-sm font-medium ${
-                          isDarkMode ? "text-white" : "text-slate-800"
-                        }`}
-                      >
-                        {expense.category}
+                      key={index}
+                      className="flex items-center justify-between p-3 rounded-xl transition-all duration-200 hover:scale-[1.01] bg-white/50 dark:bg-slate-700/30 hover:bg-white/80 dark:hover:bg-slate-700/50 shadow-sm"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-3 h-3 rounded-full ${
+                            expense.category === "Food"
+                              ? "bg-red-400"
+                              : expense.category === "Transport"
+                              ? "bg-blue-400"
+                              : expense.category === "Entertainment"
+                              ? "bg-purple-400"
+                              : "bg-green-400"
+                          }`}
+                        />
+                        <div>
+                          <div className="text-sm font-medium text-slate-800 dark:text-white">
+                            {expense.category}
+                          </div>
+                          <div className="text-[10px] md:text-sm text-slate-500 dark:text-slate-400">
+                            {expense.date}
+                          </div>
+                        </div>
                       </div>
-                      <div
-                        className={`text-[10px] md:text-sm ${
-                          isDarkMode ? "text-slate-400" : "text-slate-500"
-                        }`}
-                      >
-                        {expense.date}
+                      <div className="text-sm font-bold text-slate-800 dark:text-white">
+                        ₦ {expense.amount.toLocaleString()}
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className={`text-sm font-bold ${
-                      isDarkMode ? "text-white" : "text-slate-800"
-                    }`}
-                  >
-                    ₦ {expense.amount.toLocaleString()}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <EmptyState
-                icon="💸"
-                title="No Expenses Yet"
-                description="Start by adding your first expense to see it here"
-              />
-            )}
+                  ))
+                ) : (
+                  <EmptyState
+                    icon="💸"
+                    title="No Expenses Yet"
+                    description="Start by adding your first expense to see it here"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Add Expense Button */}
+          <div className="w-auto text-center">
+            <button
+             onClick={()=>navigate("/expenses")}
+              className="w-full text-sm py-2 md:py-4 rounded-md md:rounded-2xl font-semibold mb-2 md:mb-4 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl bg-blue-600 text-white"
+            >
+              + Add Expense
+            </button>
           </div>
         </div>
       </div>
-
-      {/* Add Expense Button */}
-      <div className="w-auto text-center">
-        <button
-          className={`w-full text-sm py-2 md:py-4 rounded-md md:rounded-2xl font-semibold mb-2 md:mb-4 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl ${
-            isDarkMode ? "bg-blue-600 text-white" : "bg-blue-600 text-white"
-          }`}
-        >
-          + Add Expense
-        </button>
-      </div>
     </div>
-  </div>
-</div>
-
   );
 };
 
