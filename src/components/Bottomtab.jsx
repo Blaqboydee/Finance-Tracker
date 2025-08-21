@@ -3,15 +3,20 @@ import { NavLink } from 'react-router-dom';
 
 const Bottomtab = () => {
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 h-16 border-t shadow-inner flex rounded-t-2xl 
-      bg-white/95 border-slate-200 dark:bg-slate-800/95 dark:border-slate-700"
-    >
+   <div
+  className="
+    fixed bottom-0 left-0 right-0 h-16 flex justify-center rounded-t-2xl border-t shadow-inner 
+    bg-white/95 border-slate-200 dark:bg-slate-800/95 dark:border-slate-700
+    md:top-[8vh] md:left-0 md:bottom-auto md:right-auto md:h-[92vh] md:w-[100px] md:flex-col md:rounded-none
+    md:shadow-xl
+  "
+>
+
       {/* Dashboard */}
       <NavLink
         to="/dashboard"
         className={({ isActive }) =>
-          `flex-1 flex flex-col items-center gap-1 py-2 transition-all duration-300 transform hover:scale-[1.05] 
+          `flex-1 flex  flex-col items-center md:justify-center gap-1 py-2 transition-all duration-300 transform hover:scale-[1.05] 
           ${isActive ? "text-blue-600" : "text-slate-800 dark:text-slate-200"}`
         }
         aria-label="Home"
@@ -31,7 +36,7 @@ const Bottomtab = () => {
       <NavLink
         to="/expenses"
         className={({ isActive }) =>
-          `flex-1 flex flex-col items-center gap-1 py-2 transition-all duration-300 transform hover:scale-[1.05] 
+          `flex-1 flex flex-col items-center md:justify-center  gap-1 py-2 transition-all duration-300 transform hover:scale-[1.05] 
           ${isActive ? "text-blue-600" : "text-slate-800 dark:text-slate-200"}`
         }
         aria-label="Expenses"
@@ -46,7 +51,7 @@ const Bottomtab = () => {
       <NavLink
         to="/summary"
         className={({ isActive }) =>
-          `flex-1 flex flex-col items-center gap-1 py-2 transition-all duration-300 transform hover:scale-[1.05] 
+          `flex-1 flex flex-col items-center md:justify-center  gap-1 py-2 transition-all duration-300 transform hover:scale-[1.05] 
           ${isActive ? "text-blue-600" : "text-slate-800 dark:text-slate-200"}`
         }
         aria-label="Summary"

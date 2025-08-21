@@ -136,7 +136,7 @@ const ExpenseForm = ({
             </label>
             <button
               type="submit"
-              className="w-full md:px-4 md:py-3 py-2 text-[15px] rounded-sm bg-blue-600 text-white font-medium shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-200"
+              className="w-full md:w-1/2 md:rounded-lg md:px-4 md:py-3 py-2 text-[15px] rounded-sm bg-blue-600 text-white font-medium shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-200"
             >
               <PlusCircle className="w-5 h-5" />
               Add

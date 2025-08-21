@@ -104,6 +104,19 @@ const SpendlyDashboard = () => {
   return (
     <div className="min-h-full flex justify-center font-sans transition-colors duration-300 pt-2">
       <div className="w-full max-w-5xl">
+        {/* Dashboard Header */}
+        <div className="p-3 md:p-4 mb-2 rounded-2xl border backdrop-blur-sm shadow-md transition-all duration-300 bg-gradient-to-r  dark:from-slate-700/80 dark:to-slate-600/80 border-blue-200/60 dark:border-slate-600/60 text-slate-900 dark:text-slate-100">
+          <div className="flex items-center justify-center gap-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <h1 className="text-lg md:text-2xl font-bold dark:text-white text-black">
+              Your Dashboard
+            </h1>
+          </div>
+          <p className="text-center text-xs md:text-sm text-slate-600 dark:text-slate-300 mt-1">
+            Track your expenses and manage your budget
+          </p>
+        </div>
+
         {/* Header */}
         <div className="p-2 md:p-6 rounded-t-3xl border backdrop-blur-sm shadow-lg transition-all duration-300 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100">
           {/* Stats Grid */}

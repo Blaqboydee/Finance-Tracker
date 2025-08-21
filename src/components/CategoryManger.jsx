@@ -49,7 +49,7 @@ const CategoryManager = ({
       {/* Dropdown Buttons */}
       <AnimatePresence>
         {open && (
-          <div className="mt-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800/90 dark:to-slate-700/90 p-6 rounded-xl border border-slate-200 dark:border-slate-600/50 shadow-lg backdrop-blur-lg border-4 md:absolute z-10 md:w-[400px] transition-all">
+          <div className="mt-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800/90 dark:to-slate-700/90 p-6 rounded-xl border border-slate-200 dark:border-slate-600/50 shadow-lg backdrop-blur-lg z-10 md:w-[400px] transition-all">
             <div className="mb-4">
               <h3 className="text-sm md:text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">
                 Category Actions
