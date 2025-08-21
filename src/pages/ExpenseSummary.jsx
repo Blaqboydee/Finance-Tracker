@@ -2,9 +2,7 @@ import React from 'react'
 import useLocalStorage from "../hooks/useLocalStorage";
 import Summary from '../components/Summary';
 const ExpenseSummary = () => {
- const defaultExpenses = [
-  
-  ];
+ const defaultExpenses = [];
 
     const [expenses, setExpenses] = useLocalStorage(
     "finance-tracker-expenses",

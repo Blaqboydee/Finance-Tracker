@@ -18,9 +18,7 @@ const Summary = ({ expenses, categories }) => {
   const categoryTotals = calcCategoryTotals(expenses, categories);
   const totalSpent = expenses.reduce((sum, expense) => sum + expense.amount, 0);
 
-  //  console.log(totalSpent);
-  // console.log(categoryTotals);
-  // console.log(categories);
+
   
 
   const exportToCSV = () => {

@@ -8,7 +8,7 @@ import ExpenseList from "../components/ExpenseList";
 
 const Expenses = () => {
  
-    const expenseListRef = useRef(null);
+const expenseListRef = useRef(null);
 
  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -107,7 +107,6 @@ const Expenses = () => {
     ];
 
     setCategories(updatedCategories);
-    console.log("New Category Added:", newCategory);
 
     setNewCategory("");
     setIsModalOpen(false);
@@ -171,12 +170,10 @@ const Expenses = () => {
   const [desc, setDesc] = useState("");
 
   const filterByDescription = (expenses, desc) => {
-    // console.log(desc);
 
     let filtered = expenses.filter((expense) =>
       expense.description.toLowerCase().includes(desc.toLowerCase())
     );
-    // console.log(filtered);g
     return filtered;
   };
 
@@ -185,8 +182,6 @@ const Expenses = () => {
   filteredExpenses = filterByDescription(filteredExpenses, desc);
 
   const setDescription = (e) => {
-    console.log(e);
-    
     setDesc(e);
     filterByDescription(expenses, desc);
   };

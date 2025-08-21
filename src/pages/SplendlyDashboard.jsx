@@ -1,94 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { useNavigate } from "react-router-dom";
-
-const calcCategoryTotals = (expenses, categories) => {
-  if (!expenses.length || !categories.length) return [];
-  
-  const totals = {};
-  expenses.forEach(expense => {
-    totals[expense.category] = (totals[expense.category] || 0) + expense.amount;
-  });
-  
-  return Object.entries(totals).map(([name, total]) => ({ name, total }));
-};
-
-const categoryMap = {
-  Entertainment: "Ent.",
-  Transport: "Trans.",
-  Food: "Fd",
-  Shopping: "Shop",
-  Healthcare: "Health"
-};
+import useExpenseTracker from '../hooks/useExpenseTracker'; // Adjust import path as needed
 
 const SpendlyDashboard = () => {
   const navigate = useNavigate();
 
-  const [expenses, setExpenses] = useState(() => {
-    return JSON.parse(localStorage.getItem("finance-tracker-expenses")) || [];
-  });
-
-  const [categories, setCategories] = useState(() => {
-    return JSON.parse(localStorage.getItem("categories")) || [];
-  });
-
-  const [totalExpense, setTotalExpense] = useState(0);
-  const [highestAmount, setHighestAmount] = useState(0);
-  const [highestCategory, setHighestCategory] = useState(null);
-
-  const recentExpenses = expenses.slice(0, 3);
-  const categoryTotals = calcCategoryTotals(expenses, categories);
-
-  useEffect(() => {
-    if (expenses.length === 0) {
-      setTotalExpense(0);
-      setHighestAmount(0);
-      setHighestCategory(null);
-      return;
-    }
-
-    let total = 0;
-    let highest = expenses[0];
-
-    for (const t of expenses) {
-      total += t.amount;
-      if (t.amount > highest.amount) {
-        highest = t;
-      }
-    }
-
-    setTotalExpense(total);
-    setHighestAmount(highest.amount);
-    setHighestCategory(highest);
-  }, [expenses]);
-
-  const colors = [
-    "#3B82F6", // blue
-    "#10B981", // green
-    "#8B5CF6", // purple
-    "#F97316", // orange
-    "#EC4899", // pink
-    "#6366F1", // indigo
-  ];
-
-  const [outerRadius, setOuterRadius] = useState(80);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setOuterRadius(50);
-      } else if (window.innerWidth < 1024) {
-        setOuterRadius(70);
-      } else {
-        setOuterRadius(100);
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+    // Component for empty states
   const EmptyState = ({ title, description, icon }) => (
     <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
       <div className="text-6xl mb-4 opacity-50 text-slate-300 dark:text-slate-600">
@@ -100,6 +18,20 @@ const SpendlyDashboard = () => {
       <p className="text-sm text-slate-500 dark:text-slate-400">{description}</p>
     </div>
   );
+  
+  const {
+    expenses,
+    categories,
+    totalExpense,
+    highestAmount,
+    highestCategory,
+    outerRadius,
+    recentExpenses,
+    categoryTotals,
+    colors,
+    categoryMap,
+    // EmptyState
+  } = useExpenseTracker();
 
   return (
     <div className="min-h-full flex justify-center font-sans transition-colors duration-300 pt-2">
@@ -262,7 +194,7 @@ const SpendlyDashboard = () => {
           {/* Add Expense Button */}
           <div className="w-auto text-center">
             <button
-             onClick={()=>navigate("/expenses")}
+             onClick={() => navigate("/expenses")}
               className="w-full text-sm py-2 md:py-4 rounded-md md:rounded-2xl font-semibold mb-2 md:mb-4 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl bg-blue-600 text-white"
             >
               + Add Expense

@@ -13,10 +13,10 @@ const CategoryManager = ({
   newName,
 }) => {
   const [open, setOpen] = useState(false);
-  const [activeAction, setActiveAction] = useState(null); // "add" | "edit" | "delete"
+  const [activeAction, setActiveAction] = useState(null); 
   const [manageButtontext, setManageButtontext] = useState("Click to manage categories")
 
-  setManageButtontext
+ 
 
   const buttonVariants = {
     hidden: { opacity: 0, y: -10 },
