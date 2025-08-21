@@ -1,24 +1,39 @@
-# 💰 Spendly
+# Spendly – Expense Tracker
 
+
+
+
+
+
+
+[Spendly Live Demo](https://spendlytracks.vercel.app/)  
 ![Spendly Logo](./src/assets/spendlylogo.png)
 
-A minimalist finance tracker that helps you stay on top of your expenses with ease.  
-Track, visualize, and manage your spending — all in one simple dashboard.
+Spendly is a modern expense tracking web application built with React and Tailwind CSS. It allows users to track expenses by category, manage their budget visually, and view a clear financial summary in a minimalistic interface.
+
+This project emphasizes UI consistency, dark mode toggle, onboarding experience, and smooth navigation using React Router.
 
 ---
 
 ## ✨ Features
 
-- ✅ Add and delete expenses  
-- ✅ Custom categories (create, edit, delete)  
+- ✅ Onboarding Screen – Introduces the app for first-time users
+- ✅ Expense Dashboard – Displays recent expenses and summary
+- ✅ Add Expense Form – Intuitive form for adding new transactions
+- ✅ Add and delete expenses
+- ✅ Local Storage Integration – Data persistence across sessions
+- ✅ Custom categories (create, edit, delete)
+- ✅ Responsive Design – Works on desktop and mobile seamlessly
 - ✅ Filter by category  
 - ✅ Search by description  
 - ✅ Dark / Light mode 🌗  
 - ✅ Date tracking  
 - ✅ Monthly summary  
-- ✅ Pie chart visualization of spending  
+- ✅ Pie chart visualization of spending
+- ✅ React Router Navigation – SPA navigation with Outlet for layouts
 - ✅ Export expenses as CSV  
-- ✅ Onboarding page for first-time users  
+
+  
 
 ---
 
@@ -27,38 +42,34 @@ Track, visualize, and manage your spending — all in one simple dashboard.
 >## 📸 Screenshots  
 
 ### 🟢 Onboarding  
-![Onboarding](./screenshots/onboardingdark.jpg)  
+  ![Onboarding](https://github.com/user-attachments/assets/f415312c-d649-439e-ab43-60bd5e5708b1)
 
+
+### 🟢 Dashboard
+![Dashboard](https://github.com/user-attachments/assets/443bde61-7ee8-49b3-b155-3db4f4f021bc)
 
 
 ### 🟢 Add Expense  
-![Add Expense](./screenshots/addexpense.jpg)  
+![Add Expense](https://github.com/user-attachments/assets/04eba781-6d78-4540-bb9e-fc6f8dff76ea)
 
-### 🟢 Categories & Filters  
-![Categories](./screenshots/categories.jpg)  
+
+### 🟢 Summary 
+![Summary](https://github.com/user-attachments/assets/f96ef0a0-d09d-46dc-b826-bee163f9cf25)
 
 ### 🟢 Light mode  
-![Dark Mode](./screenshots/onboardinglight.jpg) 
+![Dark Mode](https://github.com/user-attachments/assets/b76de374-31fc-4fa6-b968-99473739632c)
 
-### 🟢 Filters 
-![Dark Mode](./screenshots/expesneandfilters.jpg) 
 
-### 🟢 Pie chart 
-![Dark Mode](./screenshots/Pie.jpg) 
-
-### 🟢 Expense List 
-![Dark Mode](./screenshots/expenselist.jpg) 
-
-### 🟢 Manage Categories 
-![Dark Mode](./screenshots/managecategories.jpg) 
 
 ---
 
 ## 🛠 Tech Stack
 
 - *React* – Frontend framework  
-- *LocalStorage* – Data persistence  
-- *Recharts* – Data visualization  
+- *LocalStorage* – Data persistence
+- *React Router DOM* – Client-side routing
+- *Recharts* – Data visualization
+- *Vercel* – Deployment
 - *Tailwind CSS* – Styling   
 
 ---
